@@ -1,11 +1,19 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 
+function activeToast() {
+  const x = document.getElementById("toast-failed");
+  x.className = "show";
+  setTimeout(function () {
+    x.className = x.className.replace("show", "");
+  }, 3000);
+}
+
 function addTask() {
-  /* Create Snackbar/Toast https://www.w3schools.com/howto/howto_js_snackbar.asp
-     if(inputBox.value === '') {
-         alert('Mexer e criar um toast')
-  }*/
+  if (inputBox.value === "") {
+    activeToast();
+  }
+
   if (inputBox.value) {
     let li = document.createElement("li");
     li.innerHTML = inputBox.value;
